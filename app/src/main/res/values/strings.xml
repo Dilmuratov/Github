@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Github</string>
+    <string name="text_login">By signing in you accept our Terms of use and \nPrivacy policy</string>
+    <string name="btn_login_text">SIGN IN WITH GITHUB</string>
+    <string name="sign_in_with_github_enterprise">SIGN IN WITH GITHUB ENTERPRISE</string>
+</resources>
