@@ -16,4 +16,6 @@
     <color name="grey_for_repositories">#41434F</color>
     <color name="orange_for_organizations">#FA8333</color>
     <color name="yellow_for_starred">#F7C60A</color>
+    <color name="void_color_light">#EFF0F5</color>
+    <color name="void_color_dark">#050505</color>
 </resources>

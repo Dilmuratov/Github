@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_bar"
@@ -20,8 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:fontFamily="serif"
-            android:text="Home"
-
+            android:text="@string/home"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,8 +28,8 @@
 
         <ImageView
             android:id="@+id/iv_create_issue"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
             android:layout_margin="8dp"
             android:src="@drawable/ic_add_circle"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -40,8 +38,8 @@
 
         <ImageView
             android:id="@+id/iv_search"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
             android:layout_marginEnd="16dp"
             android:src="@drawable/ic_search"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -80,6 +78,7 @@
             app:layout_constraintTop_toBottomOf="@id/top_bar">
 
             <LinearLayout
+                android:id="@+id/ll_inner_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -93,8 +92,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="8dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingTop="8dp">
 
                         <TextView
                             android:id="@+id/tv_my_work"
@@ -103,7 +102,7 @@
                             android:layout_marginStart="8dp"
                             android:fontFamily="serif"
                             android:gravity="center"
-                            android:text="My Work"
+                            android:text="@string/my_work"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -111,8 +110,8 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
                             android:layout_marginEnd="8dp"
                             android:src="@drawable/ic_more_horizontal"
                             app:layout_constraintBottom_toBottomOf="@id/tv_my_work"
@@ -121,17 +120,189 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <androidx.recyclerview.widget.RecyclerView
+                    <LinearLayout
                         android:id="@+id/recycler_view"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="8dp"
                         android:orientation="vertical"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_my_work"
-                        tools:itemCount="6"
-                        tools:listitem="@layout/item_my_work" />
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_work">
+
+                        <LinearLayout
+                            android:id="@+id/ll_my_work_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/iv_my_work_1"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_margin="8dp"
+                                android:background="@drawable/bg_image_view"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_issues" />
+
+                            <TextView
+                                android:id="@+id/tv_my_work_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:layout_margin="8dp"
+                                android:fontFamily="serif"
+                                android:gravity="center"
+                                android:text="@string/issues"
+                                android:textSize="18sp"
+                                android:textStyle="" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_my_work_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/iv_my_work_2"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_margin="8dp"
+                                android:background="@drawable/bg_image_view"
+                                android:backgroundTint="@color/blue_for_full_request"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_request" />
+
+                            <TextView
+                                android:id="@+id/tv_my_work_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:layout_margin="8dp"
+                                android:fontFamily="serif"
+                                android:gravity="center"
+                                android:text="@string/pull_request"
+                                android:textSize="18sp"
+                                android:textStyle="" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_my_work_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/iv_my_work_3"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_margin="8dp"
+                                android:background="@drawable/bg_image_view"
+                                android:backgroundTint="@color/purple_for_discussions"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_chat" />
+
+                            <TextView
+                                android:id="@+id/tv_my_work_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:layout_margin="8dp"
+                                android:fontFamily="serif"
+                                android:gravity="center"
+                                android:text="@string/discussions"
+                                android:textSize="18sp"
+                                android:textStyle="" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_my_work_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/iv_my_work_4"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_margin="8dp"
+                                android:background="@drawable/bg_image_view"
+                                android:backgroundTint="@color/grey_for_repositories"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_repository" />
+
+                            <TextView
+                                android:id="@+id/tv_my_work_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:layout_margin="8dp"
+                                android:fontFamily="serif"
+                                android:gravity="center"
+                                android:text="@string/repositories"
+                                android:textSize="18sp"
+                                android:textStyle="" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_my_work_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/iv_my_work_5"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_margin="8dp"
+                                android:background="@drawable/bg_image_view"
+                                android:backgroundTint="@color/orange_for_organizations"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_organization" />
+
+                            <TextView
+                                android:id="@+id/tv_my_work_5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:layout_margin="8dp"
+                                android:fontFamily="serif"
+                                android:gravity="center"
+                                android:text="@string/organizations"
+                                android:textSize="18sp"
+                                android:textStyle="" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_my_work_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/iv_my_work_6"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_margin="8dp"
+                                android:background="@drawable/bg_image_view"
+                                android:backgroundTint="@color/yellow_for_starred"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_starred" />
+
+                            <TextView
+                                android:id="@+id/tv_my_work_6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:layout_margin="8dp"
+                                android:fontFamily="serif"
+                                android:gravity="center"
+                                android:text="@string/starred"
+                                android:textSize="18sp"
+                                android:textStyle="" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -154,7 +325,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:fontFamily="serif"
-                        android:text="Favourites"
+                        android:text="@string/favourites"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -162,9 +333,9 @@
                         android:id="@+id/tv_favourites_description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
+                        android:layout_margin="16dp"
                         android:gravity="center"
-                        android:text="Add favourite repositories for quick access at any time,, without having to search"
+                        android:text="@string/favourites_description"
                         android:textSize="18sp" />
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -173,7 +344,7 @@
                         android:layout_margin="8dp"
                         android:background="@drawable/bg_button_favourite"
                         android:fontFamily="serif"
-                        android:text="add favourite"
+                        android:text="@string/add_favourite"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -186,9 +357,9 @@
 
                 <LinearLayout
                     android:id="@+id/ll_shortcuts"
-                    android:layout_marginBottom="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -197,7 +368,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:fontFamily="serif"
-                        android:text="Shortcuts"
+                        android:text="@string/shortcuts"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -272,9 +443,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginHorizontal="8dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="16dp"
                         android:fontFamily="serif"
-                        android:text="The things you need, one tap away"
+                        android:text="@string/shortcuts_description_main"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -285,7 +456,7 @@
                         android:layout_margin="8dp"
                         android:fontFamily="serif"
                         android:gravity="center"
-                        android:text="Fast access your list of Issues, Pull Request, or Discussions"
+                        android:text="@string/shortcuts_description_body"
                         android:textSize="18sp" />
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -295,7 +466,7 @@
                         android:layout_marginBottom="16dp"
                         android:background="@drawable/bg_button_favourite"
                         android:fontFamily="serif"
-                        android:text="get started"
+                        android:text="@string/get_started"
                         android:textSize="14sp" />
 
                 </LinearLayout>

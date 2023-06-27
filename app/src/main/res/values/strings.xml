@@ -3,4 +3,26 @@
     <string name="text_login">By signing in you accept our Terms of use and \nPrivacy policy</string>
     <string name="btn_login_text">SIGN IN WITH GITHUB</string>
     <string name="sign_in_with_github_enterprise">SIGN IN WITH GITHUB ENTERPRISE</string>
+    <string name="issues">Issues</string>
+    <string name="home">Home</string>
+    <string name="pull_request">Pull request</string>
+    <string name="discussions">Discussions</string>
+    <string name="repositories">Repositories</string>
+    <string name="organizations">Organizations</string>
+    <string name="starred">Starred</string>
+    <string name="favourites">Favourites</string>
+    <string name="favourites_description">Add favourite repositories for quick access at any time,, without having to search</string>
+    <string name="add_favourite">add favourite</string>
+    <string name="shortcuts">Shortcuts</string>
+    <string name="shortcuts_description_main">The things you need, one tap away</string>
+    <string name="shortcuts_description_body">Fast access your list of Issues, Pull Request, or Discussions</string>
+    <string name="get_started">get started</string>
+    <string name="notifications">Notifications</string>
+    <string name="explore">Explore</string>
+    <string name="profile">Profile</string>
+    <string name="my_work">My Work</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="search_github">Search GitHub</string>
+    <string name="find_your_stuff">Find your stuff</string>
+    <string name="search_all_github_for_people_nrepositories_organizations_issues_and_npull_requests">Search all GitHub for People,\nRepositories, Organizations, Issues and\nPull Requests</string>
 </resources>
