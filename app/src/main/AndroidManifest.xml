@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Github"
         android:enableOnBackInvokedCallback="true"
         android:usesCleartextTraffic="true"
-        tools:targetApi="tiramisu">
+        tools:targetApi="TIRAMISU">
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

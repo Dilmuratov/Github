@@ -1,15 +1,21 @@
 package com.example.github.di
 
-import com.example.github.domain.usecases.getaccesstokenusecase.GetAccessTokenUseCase
-import com.example.github.domain.usecases.getaccesstokenusecase.GetAccessTokenUseCaseImpl
-import com.example.github.domain.usecases.getprofileinfousecase.GetProfileInfoUseCase
-import com.example.github.domain.usecases.getprofileinfousecase.GetProfileInfoUseCaseImpl
-import com.example.github.domain.usecases.getuserrepositoriesusecase.GetUserRepositoriesUseCase
-import com.example.github.domain.usecases.getuserrepositoriesusecase.GetUserRepositoriesUseCaseImpl
-import com.example.github.domain.usecases.searchrepositoriesusecase.SearchRepositoriesUseCase
-import com.example.github.domain.usecases.searchrepositoriesusecase.SearchRepositoriesUseCaseImpl
-import com.example.github.domain.usecases.searchusersusecase.SearchUsersUseCase
-import com.example.github.domain.usecases.searchusersusecase.SearchUsersUseCaseImpl
+import com.example.github.domain.local.usecases.adddatausecase.AddDataUseCase
+import com.example.github.domain.local.usecases.adddatausecase.AddDataUseCaseImpl
+import com.example.github.domain.local.usecases.deletedatausecase.DeleteDataUseCase
+import com.example.github.domain.local.usecases.deletedatausecase.DeleteDataUseCaseImpl
+import com.example.github.domain.local.usecases.getalldatausecase.GetAllDataUseCase
+import com.example.github.domain.local.usecases.getalldatausecase.GetAllDataUseCaseImpl
+import com.example.github.domain.network.usecases.getaccesstokenusecase.GetAccessTokenUseCase
+import com.example.github.domain.network.usecases.getaccesstokenusecase.GetAccessTokenUseCaseImpl
+import com.example.github.domain.network.usecases.getprofileinfousecase.GetProfileInfoUseCase
+import com.example.github.domain.network.usecases.getprofileinfousecase.GetProfileInfoUseCaseImpl
+import com.example.github.domain.network.usecases.getuserrepositoriesusecase.GetUserRepositoriesUseCase
+import com.example.github.domain.network.usecases.getuserrepositoriesusecase.GetUserRepositoriesUseCaseImpl
+import com.example.github.domain.network.usecases.searchrepositoriesusecase.SearchRepositoriesUseCase
+import com.example.github.domain.network.usecases.searchrepositoriesusecase.SearchRepositoriesUseCaseImpl
+import com.example.github.domain.network.usecases.searchusersusecase.SearchUsersUseCase
+import com.example.github.domain.network.usecases.searchusersusecase.SearchUsersUseCaseImpl
 import org.koin.dsl.module
 
 val domainModule = module {
@@ -31,5 +37,17 @@ val domainModule = module {
 
     factory<SearchUsersUseCase> {
         SearchUsersUseCaseImpl(get())
+    }
+
+    factory<GetAllDataUseCase> {
+        GetAllDataUseCaseImpl(get())
+    }
+
+    factory<AddDataUseCase> {
+        AddDataUseCaseImpl(get())
+    }
+
+    factory<DeleteDataUseCase> {
+        DeleteDataUseCaseImpl(get())
     }
 }

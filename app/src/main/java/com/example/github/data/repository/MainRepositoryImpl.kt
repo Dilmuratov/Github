@@ -10,7 +10,7 @@ import com.example.github.data.models.searchusers.UserItem
 import com.example.github.data.models.userprofileinfo.UserProfileInfoResponseData
 import com.example.github.data.network.interceptors.AccessKeyInterceptor
 import com.example.github.data.network.retrofit.Api
-import com.example.github.domain.MainRepository
+import com.example.github.domain.network.MainRepository
 import com.example.github.utils.getStringFromPref
 import com.example.github.utils.logTag
 import kotlinx.coroutines.flow.Flow

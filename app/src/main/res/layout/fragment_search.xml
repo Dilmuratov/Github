@@ -1,54 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/ll_description"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/void_color"
-        android:gravity="center"
-        android:visibility="visible">
-
-        <LinearLayout
-            android:id="@+id/tv_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            tools:ignore="UselessParent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:fontFamily="@font/asar"
-                android:text="@string/find_your_stuff"
-                android:textColor="@color/text_color"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:fontFamily="@font/asar"
-                android:gravity="center"
-                android:text="@string/search_all_github_for_people_nrepositories_organizations_issues_and_npull_requests"
-                android:textColor="@color/text_color"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,6 +56,26 @@
                 android:background="@drawable/shadow"
                 android:visibility="visible" />
 
+            <TextView
+                android:id="@+id/tv_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/asar"
+                android:text="@string/history"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/history_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_history_of_search" />
+
             <LinearLayout
                 android:id="@+id/ll_search_components"
                 android:layout_width="match_parent"
@@ -128,7 +107,7 @@
                         android:fontFamily="@font/asar"
                         android:text="@string/repositories_with"
                         android:textColor="@color/text_color"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -155,7 +134,7 @@
                         android:fontFamily="@font/asar"
                         android:text="@string/issues_with"
                         android:textColor="@color/text_color"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -182,7 +161,7 @@
                         android:fontFamily="@font/asar"
                         android:text="@string/pull_requests_with"
                         android:textColor="@color/text_color"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -209,7 +188,7 @@
                         android:fontFamily="@font/asar"
                         android:text="@string/people_with"
                         android:textColor="@color/text_color"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -236,7 +215,7 @@
                         android:fontFamily="@font/asar"
                         android:text="@string/organizations_with"
                         android:textColor="@color/text_color"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -264,7 +243,7 @@
                         android:fontFamily="@font/asar"
                         android:text="@string/jump_to"
                         android:textColor="@color/text_color"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -283,10 +262,10 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:fontFamily="@font/asar"
-                    android:textStyle="bold"
                     android:text="@string/repositories"
                     android:textColor="@color/text_color"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view_repositories"
@@ -323,10 +302,10 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:fontFamily="@font/asar"
-                    android:textStyle="bold"
                     android:text="@string/people"
                     android:textColor="@color/text_color"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view_user"
@@ -352,10 +331,49 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/ll_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="80dp"
+                android:gravity="center"
+                android:visibility="visible">
 
+                <LinearLayout
+                    android:id="@+id/tv_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:fontFamily="@font/asar"
+                        android:text="@string/find_your_stuff"
+                        android:textColor="@color/text_color"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:fontFamily="@font/asar"
+                        android:gravity="center"
+                        android:text="@string/search_all_github_for_people_nrepositories_organizations_issues_and_npull_requests"
+                        android:textColor="@color/text_color"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
 

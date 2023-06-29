@@ -17,6 +17,16 @@ class HomeMenuFragment : Fragment(R.layout.fragment_menu_home) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMenuHomeBinding.bind(view)
 
+        initObservers()
+
+        initListeners()
+    }
+
+    private fun initObservers() {
+        (requireActivity() as MainActivity).showBottomNavigationView()
+    }
+
+    private fun initListeners() {
         binding.swipeRefreshLayout.setOnRefreshListener {
             binding.swipeRefreshLayout.isRefreshing = false
             lifecycleScope.launch {
@@ -29,6 +39,8 @@ class HomeMenuFragment : Fragment(R.layout.fragment_menu_home) {
             findNavController().navigate(R.id.action_homeMenuFragment_to_searchFragment)
         }
 
-        (requireActivity() as MainActivity).showBottomNavigationView()
+        binding.llMyWork4.setOnClickListener {
+            findNavController().navigate(R.id.action_homeMenuFragment_to_repositoriesFragment)
+        }
     }
 }

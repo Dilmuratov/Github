@@ -78,4 +78,12 @@ dependencies {
     //Download image by url. Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 
+    //Lottie Animation View
+    implementation 'com.airbnb.android:lottie:4.2.0'
+
+    //for Room
+    implementation "androidx.room:room-runtime:2.5.2"
+    kapt "androidx.room:room-compiler:2.5.2"
+    implementation 'androidx.room:room-ktx:2.5.2'
+
 }

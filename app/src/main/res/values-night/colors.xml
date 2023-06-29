@@ -13,4 +13,5 @@
     <color name="anti_text_color">#333333</color>
     <color name="bg_button">#201F24</color>
     <color name="bg_item_color">#201F24</color>
+    <color name="bg_ntf_color">#3F4044</color>
 </resources>

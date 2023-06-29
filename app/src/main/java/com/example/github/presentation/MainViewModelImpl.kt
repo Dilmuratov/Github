@@ -8,11 +8,11 @@ import com.example.github.data.models.searchrepositories.RepositoryItem
 import com.example.github.data.models.searchrepositories.SearchResponseData
 import com.example.github.data.models.searchusers.UserItem
 import com.example.github.data.models.userprofileinfo.UserProfileInfoResponseData
-import com.example.github.domain.usecases.getaccesstokenusecase.GetAccessTokenUseCase
-import com.example.github.domain.usecases.getprofileinfousecase.GetProfileInfoUseCase
-import com.example.github.domain.usecases.getuserrepositoriesusecase.GetUserRepositoriesUseCase
-import com.example.github.domain.usecases.searchrepositoriesusecase.SearchRepositoriesUseCase
-import com.example.github.domain.usecases.searchusersusecase.SearchUsersUseCase
+import com.example.github.domain.network.usecases.getaccesstokenusecase.GetAccessTokenUseCase
+import com.example.github.domain.network.usecases.getprofileinfousecase.GetProfileInfoUseCase
+import com.example.github.domain.network.usecases.getuserrepositoriesusecase.GetUserRepositoriesUseCase
+import com.example.github.domain.network.usecases.searchrepositoriesusecase.SearchRepositoriesUseCase
+import com.example.github.domain.network.usecases.searchusersusecase.SearchUsersUseCase
 
 class MainViewModelImpl(
     private val getAccessTokenUseCase: GetAccessTokenUseCase,

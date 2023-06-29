@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.github.di.appModule
 import com.example.github.di.dataModule
 import com.example.github.di.domainModule
+import com.example.github.di.localModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -17,7 +18,7 @@ class App : Application() {
         context = this
 
         startKoin {
-            modules(listOf(appModule, dataModule, domainModule))
+            modules(listOf(appModule, dataModule, domainModule, localModule))
             androidContext(context)
         }
     }

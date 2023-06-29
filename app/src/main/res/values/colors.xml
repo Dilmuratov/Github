@@ -21,4 +21,6 @@
     <color name="anti_text_color">#CCCCCC</color>
     <color name="bg_button">#FEFEFE</color>
     <color name="bg_item_color">#FFFFFF</color>
+    <color name="bg_ntf_color">#DCDEE7</color>
+    <color name="bottom_navigation_tint">#0064D7</color>
 </resources>

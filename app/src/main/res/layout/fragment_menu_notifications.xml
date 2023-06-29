@@ -1,12 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:fontFamily="@font/asar"
+        android:text="@string/notifications"
+        android:textColor="@color/text_color"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_ntf_btn"
+            android:drawableEnd="@drawable/ic_more_vertical"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/asar"
+            android:text="@string/inbox"
+            android:textColor="@color/text_color"
+            android:textSize="14sp"
+            app:drawableTint="@color/text_color" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_ntf_btn"
+            android:fontFamily="@font/asar"
+            android:text="@string/unread"
+            android:textColor="@color/text_color"
+            android:textSize="14sp"
+            app:drawableTint="@color/text_color" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_ntf_btn"
+            android:drawableEnd="@drawable/ic_more_vertical"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/asar"
+            android:text="@string/repositories"
+            android:textColor="@color/text_color"
+            android:textSize="14sp"
+            app:drawableTint="@color/text_color" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shadow" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Notifications" />
+        android:background="@color/void_color">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_autoPlay="true"
+            android:padding="30dp"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/notification"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -6,10 +6,12 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.github.R
 import com.example.github.data.models.userprofileinfo.UserProfileInfoResponseData
 import com.example.github.databinding.FragmentMenuProfileBinding
 import com.example.github.presentation.MainViewModel
+import com.example.github.ui.MainActivity
 import com.example.github.ui.adapters.RepositoryAdapter
 import com.example.github.utils.getStringFromPref
 import com.example.github.utils.logTag
@@ -49,6 +51,9 @@ class ProfileMenuFragment : Fragment(R.layout.fragment_menu_profile) {
     }
 
     private fun initListeners() {
+        binding.llRepository.setOnClickListener {
+            findNavController().navigate(R.id.action_profileMenuFragment_to_repositoriesFragment)
+        }
     }
 
     private fun getData() {
@@ -100,5 +105,7 @@ class ProfileMenuFragment : Fragment(R.layout.fragment_menu_profile) {
         mainViewModel.errorLiveData.observe(requireActivity()) {
             it.printStackTrace()
         }
+
+        (requireActivity() as MainActivity).showBottomNavigationView()
     }
 }
