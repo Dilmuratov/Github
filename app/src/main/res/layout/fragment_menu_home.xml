@@ -18,8 +18,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:fontFamily="serif"
+            android:fontFamily="@font/asar"
             android:text="@string/home"
+            android:textColor="@color/text_color"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -100,9 +101,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:fontFamily="serif"
+                            android:fontFamily="@font/asar"
                             android:gravity="center"
                             android:text="@string/my_work"
+                            android:textColor="@color/text_color"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -116,7 +118,8 @@
                             android:src="@drawable/ic_more_horizontal"
                             app:layout_constraintBottom_toBottomOf="@id/tv_my_work"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@id/tv_my_work" />
+                            app:layout_constraintTop_toTopOf="@id/tv_my_work"
+                            app:tint="@color/text_color" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -133,6 +136,7 @@
                             android:id="@+id/ll_my_work_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginVertical="4dp"
                             android:orientation="horizontal">
 
                             <androidx.appcompat.widget.AppCompatImageView
@@ -149,9 +153,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="32dp"
                                 android:layout_margin="8dp"
-                                android:fontFamily="serif"
+                                android:fontFamily="@font/asar"
                                 android:gravity="center"
                                 android:text="@string/issues"
+                                android:textColor="@color/text_color"
                                 android:textSize="18sp"
                                 android:textStyle="" />
 
@@ -161,6 +166,7 @@
                             android:id="@+id/ll_my_work_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginVertical="4dp"
                             android:orientation="horizontal">
 
                             <androidx.appcompat.widget.AppCompatImageView
@@ -178,9 +184,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="32dp"
                                 android:layout_margin="8dp"
-                                android:fontFamily="serif"
+                                android:fontFamily="@font/asar"
                                 android:gravity="center"
                                 android:text="@string/pull_request"
+                                android:textColor="@color/text_color"
                                 android:textSize="18sp"
                                 android:textStyle="" />
 
@@ -190,6 +197,7 @@
                             android:id="@+id/ll_my_work_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginVertical="4dp"
                             android:orientation="horizontal">
 
                             <androidx.appcompat.widget.AppCompatImageView
@@ -207,9 +215,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="32dp"
                                 android:layout_margin="8dp"
-                                android:fontFamily="serif"
+                                android:fontFamily="@font/asar"
                                 android:gravity="center"
                                 android:text="@string/discussions"
+                                android:textColor="@color/text_color"
                                 android:textSize="18sp"
                                 android:textStyle="" />
 
@@ -219,6 +228,7 @@
                             android:id="@+id/ll_my_work_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginVertical="4dp"
                             android:orientation="horizontal">
 
                             <androidx.appcompat.widget.AppCompatImageView
@@ -236,9 +246,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="32dp"
                                 android:layout_margin="8dp"
-                                android:fontFamily="serif"
+                                android:fontFamily="@font/asar"
                                 android:gravity="center"
                                 android:text="@string/repositories"
+                                android:textColor="@color/text_color"
                                 android:textSize="18sp"
                                 android:textStyle="" />
 
@@ -248,6 +259,7 @@
                             android:id="@+id/ll_my_work_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginVertical="4dp"
                             android:orientation="horizontal">
 
                             <androidx.appcompat.widget.AppCompatImageView
@@ -265,9 +277,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="32dp"
                                 android:layout_margin="8dp"
-                                android:fontFamily="serif"
+                                android:fontFamily="@font/asar"
                                 android:gravity="center"
                                 android:text="@string/organizations"
+                                android:textColor="@color/text_color"
                                 android:textSize="18sp"
                                 android:textStyle="" />
 
@@ -277,6 +290,7 @@
                             android:id="@+id/ll_my_work_6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginVertical="4dp"
                             android:orientation="horizontal">
 
                             <androidx.appcompat.widget.AppCompatImageView
@@ -294,9 +308,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="32dp"
                                 android:layout_margin="8dp"
-                                android:fontFamily="serif"
+                                android:fontFamily="@font/asar"
                                 android:gravity="center"
                                 android:text="@string/starred"
+                                android:textColor="@color/text_color"
                                 android:textSize="18sp"
                                 android:textStyle="" />
 
@@ -324,8 +339,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
-                        android:fontFamily="serif"
+                        android:fontFamily="@font/asar"
                         android:text="@string/favourites"
+                        android:textColor="@color/text_color"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -334,8 +350,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="16dp"
+                        android:fontFamily="@font/asar"
                         android:gravity="center"
                         android:text="@string/favourites_description"
+                        android:textColor="@color/text_color"
                         android:textSize="18sp" />
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -343,8 +361,9 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:background="@drawable/bg_button_favourite"
-                        android:fontFamily="serif"
+                        android:fontFamily="@font/asar"
                         android:text="@string/add_favourite"
+                        android:textColor="@color/official_blue"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -367,8 +386,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
-                        android:fontFamily="serif"
+                        android:fontFamily="@font/asar"
                         android:text="@string/shortcuts"
+                        android:textColor="@color/text_color"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -444,8 +464,9 @@
                         android:layout_gravity="center"
                         android:layout_marginHorizontal="8dp"
                         android:layout_marginTop="16dp"
-                        android:fontFamily="serif"
+                        android:fontFamily="@font/asar"
                         android:text="@string/shortcuts_description_main"
+                        android:textColor="@color/text_color"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -454,9 +475,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="8dp"
-                        android:fontFamily="serif"
+                        android:fontFamily="@font/asar"
                         android:gravity="center"
                         android:text="@string/shortcuts_description_body"
+                        android:textColor="@color/text_color"
                         android:textSize="18sp" />
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -465,8 +487,9 @@
                         android:layout_margin="8dp"
                         android:layout_marginBottom="16dp"
                         android:background="@drawable/bg_button_favourite"
-                        android:fontFamily="serif"
+                        android:fontFamily="@font/asar"
                         android:text="@string/get_started"
+                        android:textColor="@color/official_blue"
                         android:textSize="14sp" />
 
                 </LinearLayout>

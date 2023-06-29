@@ -7,10 +7,13 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.github.R
+import com.example.github.data.models.userprofileinfo.UserProfileInfoResponseData
 import com.example.github.databinding.FragmentMenuProfileBinding
 import com.example.github.presentation.MainViewModel
+import com.example.github.ui.adapters.RepositoryAdapter
 import com.example.github.utils.getStringFromPref
 import com.example.github.utils.logTag
+import com.example.github.utils.set
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -30,46 +33,50 @@ class ProfileMenuFragment : Fragment(R.layout.fragment_menu_profile) {
 
         updateAll()
 
+        getData()
+
     }
 
     private fun updateAll() {
         binding.swipeRefreshLayout.setOnRefreshListener {
             binding.swipeRefreshLayout.isRefreshing = true
-            getData()
+            MainScope().launch {
+                mainViewModel.getUserProfileInfo()
+                mainViewModel.getUserRepositories()
+            }
             binding.swipeRefreshLayout.isRefreshing = false
         }
     }
 
     private fun initListeners() {
-        binding.ivSettings.setOnClickListener {
-            getData()
-        }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        getData()
     }
 
     private fun getData() {
         MainScope().launch {
+            binding.swipeRefreshLayout.isRefreshing = true
             mainViewModel.getUserProfileInfo()
             mainViewModel.getUserRepositories()
             Log.d(logTag, "Access key: ${getStringFromPref("access_key")}")
+            binding.swipeRefreshLayout.isRefreshing = false
         }
     }
 
     @SuppressLint("SetTextI18n")
+    private fun fillWithData(item: UserProfileInfoResponseData) {
+        binding.tvFullName.text = item.name
+        binding.tvUsername.text = item.login
+        binding.tvLocation.text = item.location
+        binding.tvFollowers.text = "${item.followers} followers"
+        binding.tvFollowings.text = "${item.following} following"
+        binding.tvMyWork32.text = "15"
+        binding.tvMyWork22.text = "0"
+        binding.ivUserProfile.set(item.avatar_url)
+    }
+
     private fun initObservers() {
         mainViewModel.getUserProfileLiveData.observe(requireActivity()) {
             if (it != null) {
-                binding.tvFullName.text = it.name
-                binding.tvUsername.text = it.login
-                binding.tvLocation.text = it.location
-                binding.tvFollowers.text = "${it.followers} followers"
-                binding.tvFollowings.text = "${it.following} following"
-                binding.tvMyWork32.text = "15"
-                binding.tvMyWork22.text = "0"
+                fillWithData(it)
             } else {
                 Log.d(logTag, "User is null")
             }
@@ -94,5 +101,4 @@ class ProfileMenuFragment : Fragment(R.layout.fragment_menu_profile) {
             it.printStackTrace()
         }
     }
-
 }

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_owner_profile"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_circle_image_view"
+            android:src="@drawable/ic_github" />
+
+        <TextView
+            android:id="@+id/tv_owner_username"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:fontFamily="@font/asar"
+            android:textColor="@color/text_color"
+            android:textSize="16sp"
+            tools:text="Dilmuratov" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_repository_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:fontFamily="@font/asar"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Telegram" />
+
+    <TextView
+        android:id="@+id/tv_repository_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:fontFamily="@font/asar"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        tools:text="Telegram for Android source" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_star"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_margin="4dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_star_filled"
+            app:tint="@color/yellow_for_starred" />
+
+        <TextView
+            android:id="@+id/tv_count_of_stars"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:fontFamily="@font/asar"
+            android:text="3100"
+            android:textColor="@color/text_color"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/iv_dot"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_margin="4dp"
+            android:padding="4dp"
+            app:tint="@color/text_color"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_dot" />
+
+        <TextView
+            android:id="@+id/tv_languages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:fontFamily="@font/asar"
+            android:textColor="@color/text_color"
+            android:textSize="14sp"
+            tools:text="Kotlin" />
+
+    </LinearLayout>
+
+</LinearLayout>

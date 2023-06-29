@@ -4,6 +4,9 @@ import android.util.Log
 import com.example.github.data.local.Constants
 import com.example.github.data.models.ResultData
 import com.example.github.data.models.getuserrepositories.RepositoryData
+import com.example.github.data.models.searchrepositories.RepositoryItem
+import com.example.github.data.models.searchrepositories.SearchResponseData
+import com.example.github.data.models.searchusers.UserItem
 import com.example.github.data.models.userprofileinfo.UserProfileInfoResponseData
 import com.example.github.data.network.interceptors.AccessKeyInterceptor
 import com.example.github.data.network.retrofit.Api
@@ -18,7 +21,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MainRepositoryImpl() : MainRepository {
+class MainRepositoryImpl : MainRepository {
 
     private var api: Api
 
@@ -29,8 +32,7 @@ class MainRepositoryImpl() : MainRepository {
         val response = api.getAccessToken(clientId, clientSecret, code)
         if (response.isSuccessful) {
             emit(ResultData.Success(response.body()!!.accessToken))
-        } else
-            emit(ResultData.Message(response.message()))
+        } else emit(ResultData.Message(response.message()))
     }.catch {
         it.printStackTrace()
     }
@@ -58,20 +60,37 @@ class MainRepositoryImpl() : MainRepository {
         }
     }.catch { it.printStackTrace() }
 
+    override suspend fun searchRepositories(q: String): Flow<ResultData<SearchResponseData<RepositoryItem>>> =
+        flow {
+            val response = api.searchRepositories(q)
+            if (response.isSuccessful) {
+                emit(ResultData.Success(response.body()!!))
+            } else {
+                emit(ResultData.Message(response.message()))
+                Log.d(logTag, "searchRepositories message: ${response.message()}")
+            }
+        }.catch { it.printStackTrace() }
+
+    override suspend fun searchUsers(q: String): Flow<ResultData<SearchResponseData<UserItem>>> =
+        flow {
+            val response = api.searchUsers(q)
+            if (response.isSuccessful) {
+                emit(ResultData.Success(response.body()!!))
+            } else {
+                emit(ResultData.Message(response.message()))
+                Log.d(logTag, "searchUsers message: ${response.message()}")
+            }
+        }.catch { it.printStackTrace() }
+
     init {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
-        val okHttpClient = OkHttpClient.Builder()
-            .addInterceptor(httpLoggingInterceptor)
-            .addInterceptor(AccessKeyInterceptor())
-            .build()
+        val okHttpClient = OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor)
+            .addInterceptor(AccessKeyInterceptor()).build()
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl(Constants.baseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(okHttpClient)
-            .build()
+        val retrofit = Retrofit.Builder().baseUrl(Constants.baseUrl)
+            .addConverterFactory(GsonConverterFactory.create()).client(okHttpClient).build()
 
         api = retrofit.create(Api::class.java)
 

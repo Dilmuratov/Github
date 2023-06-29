@@ -24,7 +24,8 @@
                 android:src="@drawable/ic_back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/text_color" />
 
             <ImageView
                 android:id="@+id/iv_settings"
@@ -80,10 +81,11 @@
                     android:layout_gravity="center|start"
                     android:layout_weight="1"
                     android:ellipsize="marquee"
-                    android:fontFamily="serif"
+                    android:fontFamily="@font/asar"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
+                    android:textColor="@color/text_color"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     tools:text="Dilmuratov Damir" />
@@ -95,10 +97,11 @@
                     android:layout_gravity="center|start"
                     android:layout_weight="1"
                     android:ellipsize="marquee"
-                    android:fontFamily="serif"
+                    android:fontFamily="@font/asar"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
+                    android:textColor="@color/text_color"
                     android:textSize="18sp"
                     tools:text="Dilmuratov" />
 
@@ -116,7 +119,8 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_margin="8dp"
-                android:src="@drawable/ic_location" />
+                android:src="@drawable/ic_location"
+                app:tint="@color/text_color" />
 
             <TextView
                 android:id="@+id/tv_location"
@@ -125,9 +129,11 @@
                 android:layout_gravity="center|start"
                 android:layout_margin="8dp"
                 android:ellipsize="marquee"
+                android:fontFamily="@font/asar"
                 android:marqueeRepeatLimit="marquee_forever"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
+                android:textColor="@color/text_color"
                 android:textSize="18sp"
                 tools:text="Karakalpakstan, Chimbay" />
 
@@ -143,7 +149,8 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_margin="8dp"
-                android:src="@drawable/ic_profile" />
+                android:src="@drawable/ic_profile"
+                app:tint="@color/text_color" />
 
             <TextView
                 android:id="@+id/tv_followers"
@@ -151,7 +158,8 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center|start"
                 android:layout_margin="8dp"
-                android:fontFamily="serif"
+                android:fontFamily="@font/asar"
+                android:textColor="@color/text_color"
                 android:textSize="18sp"
                 tools:text="4 followers" />
 
@@ -161,7 +169,8 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center|start"
                 android:layout_margin="8dp"
-                android:fontFamily="serif"
+                android:fontFamily="@font/asar"
+                android:textColor="@color/text_color"
                 android:textSize="18sp"
                 tools:text="6 followings" />
 
@@ -169,9 +178,20 @@
 
         <View
             android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shadow" />
+
+        <View
+            android:layout_width="match_parent"
             android:layout_height="16dp"
-            android:layout_marginVertical="8dp"
-            android:background="#E1E1E1" />
+            android:background="@color/void_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shadow2" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -183,15 +203,16 @@
                 android:layout_height="28dp"
                 android:layout_margin="8dp"
                 android:src="@drawable/ic_starred"
-                app:tint="@color/grey" />
+                app:tint="@color/text_color" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center|start"
                 android:layout_margin="8dp"
-                android:fontFamily="serif"
+                android:fontFamily="@font/asar"
                 android:text="@string/repositories"
+                android:textColor="@color/text_color"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -231,9 +252,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_margin="8dp"
-                android:fontFamily="serif"
+                android:fontFamily="@font/asar"
                 android:gravity="center"
                 android:text="@string/repositories"
+                android:textColor="@color/text_color"
                 android:textSize="18sp" />
 
             <TextView
@@ -241,8 +263,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
-                android:fontFamily="serif"
+                android:fontFamily="@font/asar"
                 android:gravity="end|center_vertical"
+                android:textColor="@color/text_color"
                 android:textSize="18sp"
                 tools:text="16" />
 
@@ -268,9 +291,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_margin="8dp"
-                android:fontFamily="serif"
+                android:fontFamily="@font/asar"
                 android:gravity="center"
                 android:text="@string/organizations"
+                android:textColor="@color/text_color"
                 android:textSize="18sp" />
 
             <TextView
@@ -278,8 +302,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
-                android:fontFamily="serif"
+                android:fontFamily="@font/asar"
                 android:gravity="end|center_vertical"
+                android:textColor="@color/text_color"
                 android:textSize="18sp"
                 tools:text="0" />
 
@@ -305,9 +330,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_margin="8dp"
-                android:fontFamily="serif"
+                android:fontFamily="@font/asar"
                 android:gravity="center"
                 android:text="@string/starred"
+                android:textColor="@color/text_color"
                 android:textSize="18sp" />
 
             <TextView
@@ -315,8 +341,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
-                android:fontFamily="serif"
+                android:fontFamily="@font/asar"
                 android:gravity="end|center_vertical"
+                android:textColor="@color/text_color"
                 android:textSize="18sp"
                 tools:text="7" />
 
@@ -330,7 +357,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#E1E1E1" />
+            android:background="@color/void_color" />
 
     </LinearLayout>
 

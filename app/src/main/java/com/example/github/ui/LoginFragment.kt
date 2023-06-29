@@ -34,35 +34,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onResume() {
         super.onResume()
-        val uri: Uri? = requireActivity().intent?.data
-        if (uri != null) {
-            val code = uri.getQueryParameter("code")
-            if (code != null) {
-                Log.d("TTTT", "Code: $code")
-                Toast.makeText(requireActivity(), "Login success: $code", Toast.LENGTH_SHORT).show()
-                putStringToPref("code", code)
-
-                MainScope().launch {
-                    mainViewModel.getAccessToken()
-                    if (getStringFromPref("access_key") != null) {
-                        navigateToMainFragment()
-                    } else {
-                        Toast.makeText(requireActivity(), "Please try again!", Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                }
-
-            } else if (uri.getQueryParameter("error") != null) {
-                Toast.makeText(requireActivity(), "Something went wrong", Toast.LENGTH_SHORT).show()
-            } else Toast.makeText(requireActivity(), "Error", Toast.LENGTH_SHORT).show()
-        }
+        getCode()
     }
 
     private fun initListeners() {
-        binding.btnLoginWithEnterprise.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
-        }
-
         binding.btnLogin.setOnClickListener {
             val intent = Intent(
                 Intent.ACTION_VIEW, Uri.parse(
@@ -89,13 +64,31 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun navigateToMainFragment() {
         val accessKey = getStringFromPref("access_key")
-        if (accessKey.isNullOrEmpty().not()) {
-            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+        if (accessKey.isNullOrEmpty().not() && accessKey != "access_key") {
+            findNavController().navigate(R.id.action_loginFragment_to_homeMenuFragment)
         } else {
             Log.d(logTag, "access_key null keldi, access_key: $accessKey")
             lifecycleScope.launch {
                 mainViewModel.getAccessToken()
             }
+            Toast.makeText(requireActivity(), "Please try again later!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun getCode() {
+        val uri: Uri? = requireActivity().intent?.data
+        if (uri != null) {
+            val code = uri.getQueryParameter("code")
+            if (code != null) {
+                putStringToPref("code", code)
+
+                MainScope().launch {
+                    mainViewModel.getAccessToken()
+                    navigateToMainFragment()
+                }
+            } else if (uri.getQueryParameter("error") != null) {
+                Toast.makeText(requireActivity(), "Something went wrong", Toast.LENGTH_SHORT).show()
+            } else Toast.makeText(requireActivity(), "Please try again!", Toast.LENGTH_SHORT).show()
         }
     }
 }

@@ -10,7 +10,9 @@ val appModule = module {
         MainViewModelImpl(
             getAccessTokenUseCase = get(),
             getProfileInfoUseCase = get(),
-            getUserRepositoriesUseCase = get()
+            getUserRepositoriesUseCase = get(),
+            searchRepositoriesUseCase = get(),
+            searchUsersUseCase = get()
         )
     }
 }

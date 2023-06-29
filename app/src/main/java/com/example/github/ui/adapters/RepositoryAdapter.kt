@@ -1,14 +1,13 @@
-package com.example.github.ui.menu
+package com.example.github.ui.adapters
 
-import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.github.R
 import com.example.github.data.models.getuserrepositories.RepositoryData
 import com.example.github.databinding.ItemRepositoryBinding
+import com.example.github.utils.set
 
 class RepositoryAdapter :
     ListAdapter<RepositoryData, RepositoryAdapter.RepositoryViewHolder>(
@@ -32,11 +31,7 @@ class RepositoryAdapter :
         fun bind(position: Int) {
             val repository = getItem(position)
             binding.tvOwnerUsername.text = repository.owner.login
-            try {
-                binding.ivOwnerProfile.setImageBitmap(BitmapFactory.decodeFile(repository.owner.avatar_url))
-            } catch (e: Exception) {
-                binding.ivOwnerProfile.setImageResource(R.drawable.ic_github)
-            }
+            binding.ivOwnerProfile.set(repository.owner.avatar_url)
             binding.tvCountOfStars.text = repository.stargazers_count.toString()
             binding.tvLanguages.text = repository.language
             binding.tvRepositoryName.text = repository.name

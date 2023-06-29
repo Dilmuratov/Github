@@ -25,7 +25,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         MainScope().launch {
             delay(1000)
             if (accessKey.isNullOrEmpty().not() && accessKey != "access_key") {
-                findNavController().navigate(R.id.action_splashFragment_to_mainFragment)
+                findNavController().navigate(R.id.action_splashFragment_to_homeMenuFragment)
             } else {
                 MainScope().launch {
                     delay(1000)

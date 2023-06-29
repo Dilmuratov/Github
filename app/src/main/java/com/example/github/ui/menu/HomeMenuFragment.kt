@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.github.R
 import com.example.github.databinding.FragmentMenuHomeBinding
+import com.example.github.ui.MainActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -22,5 +24,11 @@ class HomeMenuFragment : Fragment(R.layout.fragment_menu_home) {
             }
             binding.swipeRefreshLayout.isRefreshing = false
         }
+
+        binding.ivSearch.setOnClickListener {
+            findNavController().navigate(R.id.action_homeMenuFragment_to_searchFragment)
+        }
+
+        (requireActivity() as MainActivity).showBottomNavigationView()
     }
 }

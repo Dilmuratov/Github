@@ -6,6 +6,10 @@ import com.example.github.domain.usecases.getprofileinfousecase.GetProfileInfoUs
 import com.example.github.domain.usecases.getprofileinfousecase.GetProfileInfoUseCaseImpl
 import com.example.github.domain.usecases.getuserrepositoriesusecase.GetUserRepositoriesUseCase
 import com.example.github.domain.usecases.getuserrepositoriesusecase.GetUserRepositoriesUseCaseImpl
+import com.example.github.domain.usecases.searchrepositoriesusecase.SearchRepositoriesUseCase
+import com.example.github.domain.usecases.searchrepositoriesusecase.SearchRepositoriesUseCaseImpl
+import com.example.github.domain.usecases.searchusersusecase.SearchUsersUseCase
+import com.example.github.domain.usecases.searchusersusecase.SearchUsersUseCaseImpl
 import org.koin.dsl.module
 
 val domainModule = module {
@@ -19,5 +23,13 @@ val domainModule = module {
 
     factory<GetUserRepositoriesUseCase> {
         GetUserRepositoriesUseCaseImpl(get())
+    }
+
+    factory<SearchRepositoriesUseCase> {
+        SearchRepositoriesUseCaseImpl(get())
+    }
+
+    factory<SearchUsersUseCase> {
+        SearchUsersUseCaseImpl(get())
     }
 }
