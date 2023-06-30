@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <!--  Customize colors  -->
     <color name="grey">#3C4040</color>
-    <color name="official_blue">#001AFF</color>
+    <color name="official_blue">@color/bottom_navigation_tint</color>
     <color name="green_for_issues">#2BAB4C</color>
     <color name="blue_for_full_request">#1D84EE</color>
     <color name="purple_for_discussions">#6E46BA</color>

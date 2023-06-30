@@ -3,6 +3,7 @@ package com.example.github.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.github.data.models.ResultData
+import com.example.github.data.models.getuserfollowers.FollowerItem
 import com.example.github.data.models.getuserrepositories.RepositoryData
 import com.example.github.data.models.searchrepositories.RepositoryItem
 import com.example.github.data.models.searchrepositories.SearchResponseData
@@ -10,6 +11,7 @@ import com.example.github.data.models.searchusers.UserItem
 import com.example.github.data.models.userprofileinfo.UserProfileInfoResponseData
 import com.example.github.domain.network.usecases.getaccesstokenusecase.GetAccessTokenUseCase
 import com.example.github.domain.network.usecases.getprofileinfousecase.GetProfileInfoUseCase
+import com.example.github.domain.network.usecases.getuserfollowersusecase.GetUserFollowersUseCase
 import com.example.github.domain.network.usecases.getuserrepositoriesusecase.GetUserRepositoriesUseCase
 import com.example.github.domain.network.usecases.searchrepositoriesusecase.SearchRepositoriesUseCase
 import com.example.github.domain.network.usecases.searchusersusecase.SearchUsersUseCase
@@ -19,7 +21,8 @@ class MainViewModelImpl(
     private val getProfileInfoUseCase: GetProfileInfoUseCase,
     private val getUserRepositoriesUseCase: GetUserRepositoriesUseCase,
     private val searchRepositoriesUseCase: SearchRepositoriesUseCase,
-    private val searchUsersUseCase: SearchUsersUseCase
+    private val searchUsersUseCase: SearchUsersUseCase,
+    private val getUserFollowersUseCase: GetUserFollowersUseCase
 ) : MainViewModel() {
 
     private val _getAccessTokenLiveData = MutableLiveData<String?>()
@@ -38,17 +41,21 @@ class MainViewModelImpl(
     override val searchUsersLiveData: LiveData<SearchResponseData<UserItem>?>
         get() = _searchUsersLiveData
 
-    private val _messageLiveData = MutableLiveData<String>()
+    private val _getUserProfileLiveData = MutableLiveData<UserProfileInfoResponseData?>()
+    override val getUserProfileLiveData: LiveData<UserProfileInfoResponseData?>
+        get() = _getUserProfileLiveData
+
+    private val _getUserFollowersLiveData = MutableLiveData<List<FollowerItem>?>()
+    override val getUserFollowersLiveData: LiveData<List<FollowerItem>?>
+        get() = _getUserFollowersLiveData
+
+    val _messageLiveData = MutableLiveData<String>()
     override val messageLiveData: LiveData<String>
         get() = _messageLiveData
 
     private val _errorLiveData = MutableLiveData<Throwable>()
     override val errorLiveData: LiveData<Throwable>
         get() = _errorLiveData
-
-    private val _getUserProfileLiveData = MutableLiveData<UserProfileInfoResponseData?>()
-    override val getUserProfileLiveData: LiveData<UserProfileInfoResponseData?>
-        get() = _getUserProfileLiveData
 
     override suspend fun getAccessToken() {
         getAccessTokenUseCase.execute().collect {
@@ -119,6 +126,22 @@ class MainViewModelImpl(
             when (it) {
                 is ResultData.Success -> {
                     _searchUsersLiveData.value = it.data
+                }
+                is ResultData.Message -> {
+                    _messageLiveData.value = it.message
+                }
+                is ResultData.Error -> {
+                    _errorLiveData.value = it.error
+                }
+            }
+        }
+    }
+
+    override suspend fun getUserFollowers(login: String, type: String) {
+        getUserFollowersUseCase.execute(login, type).collect {
+            when (it) {
+                is ResultData.Success -> {
+                    _getUserFollowersLiveData.value = it.data
                 }
                 is ResultData.Message -> {
                     _messageLiveData.value = it.message

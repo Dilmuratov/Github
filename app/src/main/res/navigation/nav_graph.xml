@@ -64,6 +64,9 @@
         <action
             android:id="@+id/action_profileMenuFragment_to_repositoriesFragment"
             app:destination="@id/repositoriesFragment" />
+        <action
+            android:id="@+id/action_profileMenuFragment_to_fragmentFollowers"
+            app:destination="@id/fragmentFollowers" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -75,4 +78,17 @@
         android:name="com.example.github.ui.RepositoriesFragment"
         android:label="RepositoriesFragment"
         tools:layout="@layout/fragment_repositories" />
+    <fragment
+        android:id="@+id/fragmentFollowers"
+        android:name="com.example.github.ui.FragmentFollowers"
+        android:label="FragmentFollowers"
+        tools:layout="@layout/fragment_followers">
+        <argument
+            android:name="login"
+            app:argType="string" />
+        <argument
+            android:name="isFollowers"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </fragment>
 </navigation>

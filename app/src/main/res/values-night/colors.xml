@@ -14,4 +14,5 @@
     <color name="bg_button">#201F24</color>
     <color name="bg_item_color">#201F24</color>
     <color name="bg_ntf_color">#3F4044</color>
+    <color name="bottom_navigation_tint">#0064D7</color>
 </resources>

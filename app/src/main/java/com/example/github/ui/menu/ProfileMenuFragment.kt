@@ -24,6 +24,7 @@ class ProfileMenuFragment : Fragment(R.layout.fragment_menu_profile) {
     private lateinit var binding: FragmentMenuProfileBinding
     private val mainViewModel: MainViewModel by viewModel()
     private var adapter = RepositoryAdapter()
+    private var login = ""
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMenuProfileBinding.bind(view)
@@ -54,6 +55,34 @@ class ProfileMenuFragment : Fragment(R.layout.fragment_menu_profile) {
         binding.llRepository.setOnClickListener {
             findNavController().navigate(R.id.action_profileMenuFragment_to_repositoriesFragment)
         }
+
+        binding.tvFollowers.setOnClickListener {
+            if (login.isNotEmpty()) {
+                val bundle = Bundle()
+                bundle.putString("login", login)
+                bundle.putBoolean("isFollowers", true)
+                findNavController().navigate(
+                    R.id.action_profileMenuFragment_to_fragmentFollowers,
+                    bundle
+                )
+            }
+        }
+
+        binding.tvFollowings.setOnClickListener {
+            if (login.isNotEmpty()) {
+                val bundle = Bundle()
+                bundle.putString("login", login)
+                bundle.putBoolean("isFollowers", false)
+                findNavController().navigate(
+                    R.id.action_profileMenuFragment_to_fragmentFollowers,
+                    bundle
+                )
+            }
+        }
+
+        binding.ivBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun getData() {
@@ -68,6 +97,7 @@ class ProfileMenuFragment : Fragment(R.layout.fragment_menu_profile) {
 
     @SuppressLint("SetTextI18n")
     private fun fillWithData(item: UserProfileInfoResponseData) {
+        login = item.login
         binding.tvFullName.text = item.name
         binding.tvUsername.text = item.login
         binding.tvLocation.text = item.location

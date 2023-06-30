@@ -2,6 +2,7 @@ package com.example.github.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import com.example.github.data.models.getuserfollowers.FollowerItem
 import com.example.github.data.models.getuserrepositories.RepositoryData
 import com.example.github.data.models.searchrepositories.RepositoryItem
 import com.example.github.data.models.searchrepositories.SearchResponseData
@@ -14,9 +15,10 @@ abstract class MainViewModel : ViewModel() {
     abstract val getUserRepositoriesLiveData: LiveData<List<RepositoryData>?>
     abstract val searchRepositoriesLiveData: LiveData<SearchResponseData<RepositoryItem>?>
     abstract val searchUsersLiveData: LiveData<SearchResponseData<UserItem>?>
+    abstract val getUserProfileLiveData: LiveData<UserProfileInfoResponseData?>
+    abstract val getUserFollowersLiveData: LiveData<List<FollowerItem>?>
     abstract val messageLiveData: LiveData<String>
     abstract val errorLiveData: LiveData<Throwable>
-    abstract val getUserProfileLiveData: LiveData<UserProfileInfoResponseData?>
 
     abstract suspend fun getAccessToken()
 
@@ -27,5 +29,7 @@ abstract class MainViewModel : ViewModel() {
     abstract suspend fun searchRepositories(q: String)
 
     abstract suspend fun searchUsers(q: String)
+
+    abstract suspend fun getUserFollowers(login: String, type: String)
 
 }

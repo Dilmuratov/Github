@@ -1,6 +1,7 @@
 package com.example.github.data.network.retrofit
 
 import com.example.github.data.models.getaccesstoken.GetAccessTokenResponseData
+import com.example.github.data.models.getuserfollowers.FollowerItem
 import com.example.github.data.models.getuserrepositories.RepositoryData
 import com.example.github.data.models.searchrepositories.RepositoryItem
 import com.example.github.data.models.searchrepositories.SearchResponseData
@@ -39,5 +40,12 @@ interface Api {
     suspend fun searchUsers(
         @Query("q") q: String
     ): Response<SearchResponseData<UserItem>>
+
+
+    @GET("/users/{login}/{type}")
+    suspend fun getUserFollowers(
+        @Path("login") login: String,
+        @Path("type") type: String
+    ): Response<List<FollowerItem>>
 
 }

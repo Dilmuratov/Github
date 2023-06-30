@@ -14,8 +14,7 @@
         android:layout_margin="8dp"
         android:src="@drawable/ic_github"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/text_color" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/tv_owner_username"

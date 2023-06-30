@@ -10,6 +10,8 @@ import com.example.github.domain.network.usecases.getaccesstokenusecase.GetAcces
 import com.example.github.domain.network.usecases.getaccesstokenusecase.GetAccessTokenUseCaseImpl
 import com.example.github.domain.network.usecases.getprofileinfousecase.GetProfileInfoUseCase
 import com.example.github.domain.network.usecases.getprofileinfousecase.GetProfileInfoUseCaseImpl
+import com.example.github.domain.network.usecases.getuserfollowersusecase.GetUserFollowersUseCase
+import com.example.github.domain.network.usecases.getuserfollowersusecase.GetUserFollowersUseCaseImpl
 import com.example.github.domain.network.usecases.getuserrepositoriesusecase.GetUserRepositoriesUseCase
 import com.example.github.domain.network.usecases.getuserrepositoriesusecase.GetUserRepositoriesUseCaseImpl
 import com.example.github.domain.network.usecases.searchrepositoriesusecase.SearchRepositoriesUseCase
@@ -49,5 +51,9 @@ val domainModule = module {
 
     factory<DeleteDataUseCase> {
         DeleteDataUseCaseImpl(get())
+    }
+
+    factory<GetUserFollowersUseCase> {
+        GetUserFollowersUseCaseImpl(get())
     }
 }

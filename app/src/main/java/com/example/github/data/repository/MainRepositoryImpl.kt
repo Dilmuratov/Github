@@ -3,6 +3,7 @@ package com.example.github.data.repository
 import android.util.Log
 import com.example.github.data.local.Constants
 import com.example.github.data.models.ResultData
+import com.example.github.data.models.getuserfollowers.FollowerItem
 import com.example.github.data.models.getuserrepositories.RepositoryData
 import com.example.github.data.models.searchrepositories.RepositoryItem
 import com.example.github.data.models.searchrepositories.SearchResponseData
@@ -81,6 +82,16 @@ class MainRepositoryImpl : MainRepository {
                 Log.d(logTag, "searchUsers message: ${response.message()}")
             }
         }.catch { it.printStackTrace() }
+
+    override suspend fun getUserFollowers(login: String, type: String): Flow<ResultData<List<FollowerItem>>> = flow {
+        val response = api.getUserFollowers(login, type)
+        if (response.isSuccessful) {
+            emit(ResultData.Success(response.body()!!))
+        } else {
+            emit(ResultData.Message(response.message()))
+            Log.d(logTag, "getUserFollowers message: ${response.message()}")
+        }
+    }.catch { it.printStackTrace() }
 
     init {
         val httpLoggingInterceptor = HttpLoggingInterceptor()

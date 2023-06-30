@@ -14,7 +14,8 @@ val appModule = module {
             getProfileInfoUseCase = get(),
             getUserRepositoriesUseCase = get(),
             searchRepositoriesUseCase = get(),
-            searchUsersUseCase = get()
+            searchUsersUseCase = get(),
+            getUserFollowersUseCase = get()
         )
     }
 

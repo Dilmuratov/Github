@@ -1,6 +1,7 @@
 package com.example.github.domain.network
 
 import com.example.github.data.models.ResultData
+import com.example.github.data.models.getuserfollowers.FollowerItem
 import com.example.github.data.models.getuserrepositories.RepositoryData
 import com.example.github.data.models.searchrepositories.RepositoryItem
 import com.example.github.data.models.searchrepositories.SearchResponseData
@@ -19,5 +20,7 @@ interface MainRepository {
     suspend fun searchRepositories(q: String): Flow<ResultData<SearchResponseData<RepositoryItem>>>
 
     suspend fun searchUsers(q: String): Flow<ResultData<SearchResponseData<UserItem>>>
+
+    suspend fun getUserFollowers(login: String, type: String): Flow<ResultData<List<FollowerItem>>>
 
 }
